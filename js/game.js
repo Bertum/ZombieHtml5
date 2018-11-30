@@ -1,7 +1,21 @@
+$(document).ready(function () {
+	inicio();
+});
+
+function inicio() {
+    for (var i = 0; i < numeroZombies; i++) {
+        zombies[i] = new Zombie(Math.random() * 2048, Math.random() * 2048, Math.random() * Math.PI * 2, Math.random() * 2 + 2);
+    }
+    contextosprite.drawImage(spritesheet, 0, 0, 100, 20)
+    contextolaberinto.drawImage(laberinto, 0, 0)
+    temporizador = setTimeout("bucle()", 1000)
+    contextoZombie.fillStyle = "red";
+    contextosensores.fillStyle = "green";
+}
+
 function bucle() {
-    contextoZombie.clearRect(0, 0, 2048, 2048);
-    contextosensores.clearRect(0, 0, 2048, 2048);
-    contextoPlayer.clearRect(0,0,2048,2048);
+    contextoZombie.clearRect(0, 0, 2048, 2048)
+    contextosensores.clearRect(0, 0, 2048, 2048)
     for (var i = 0; i < numeroZombies; i++) {
         // Pinto el npc
         drawImageRot(contextoZombie, sprite, zombies[i].posX, zombies[i].posY, 12, 12, zombies[i].angulo)
@@ -29,11 +43,6 @@ function bucle() {
         // Vamos a hacer que se muevan
         zombies[i].muevete();
     }
-    if(startMovement){
-        player.posX += (clickTargetX - player.posX) / player.velocidad;
-        player.posY += (clickTargetY - player.posY) / player.velocidad;
-    }
-    contextoPlayer.drawImage(pjSprite,player.posX-sprite.width/2,player.posY-sprite.height/2,64,64);
     clearTimeout(temporizador);
     temporizador = setTimeout("bucle()", 33)
 
