@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            canvas{border:1px solid black;}
+        </style>
+    </head>
+    <body>
+        <canvas id="sprite" width="512px" height="512px"></canvas>
+        <canvas id="auxiliar" width="60px" height="60px"></canvas>
+        <script>
+            var spritesheet = new Image();
+            spritesheet.src = "spritesheet.png";
+            var contexto = document.getElementById("sprite").getContext("2d")
+            var contextoauxiliar = document.getElementById("auxiliar").getContext("2d")
+            var temporizador = setTimeout("bucle()",1000);
+            var contador = 0;
+            var angulo = 0;
+            function bucle(){
+                contador++;
+                angulo = 0.1
+                
+                contextoauxiliar.translate(30,30)
+                contextoauxiliar.rotate(angulo)
+                contextoauxiliar.translate(-30,-30)
+                
+                contextoauxiliar.clearRect(0,0,60,60)
+                contextoauxiliar.drawImage(spritesheet,contador*40,120,40,60,0,0,40,60)
+                if(contador > 2){contador = 0;}
+                
+                var imagencita = contextoauxiliar.getImageData(0,0,60,60)
+                contexto.putImageData(imagencita,30,30)
+                
+                clearTimeout(temporizador)
+                temporizador = setTimeout("bucle()",100);
+            }
+        </script>
+    </body>
+</html>
