@@ -1,4 +1,4 @@
-function Npc(x, y, angulo, velocidad) {
+function Zombie(x, y, angulo, velocidad) {
     this.posx = x;
     this.posy = y;
     this.angulo = angulo;

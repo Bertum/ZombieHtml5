@@ -56,12 +56,11 @@
         var numeroNpc = 100;
         var npcs = new Array();
         var laberinto = new Image();
-        laberinto.src = "maze.jpg";
-        laberinto.crossOrigin = "Anonymous";
+        laberinto.src = "images/maze.jpg";
         var temporizador;
-        var contextolaberinto = document.getElementById("laberinto").getContext("2d")
-        var contextonpc = document.getElementById("npc").getContext("2d")
-        var contextosensores = document.getElementById("sensores").getContext("2d")
+        var contextolaberinto = document.getElementById("laberinto").getContext("2d");
+        var contextonpc = document.getElementById("npc").getContext("2d");
+        var contextosensores = document.getElementById("sensores").getContext("2d");
         setTimeout("inicio()", 1000)
         function inicio() {
             for (var i = 0; i < numeroNpc; i++) {
