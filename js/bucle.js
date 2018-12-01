@@ -12,7 +12,7 @@ function bucle() {
         player.posX += (clickTargetX - player.posX) / player.velocidad;
         player.posY += (clickTargetY - player.posY) / player.velocidad;
     }
-    contextoPlayer.drawImage(pjSprite, player.posX - sprite.width / 2, player.posY - sprite.height / 2, 64, 64);
+    player.drawPlayer();
     clearTimeout(temporizador);
     temporizador = setTimeout("bucle()", 33)
 
