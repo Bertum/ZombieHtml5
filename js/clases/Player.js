@@ -7,55 +7,55 @@ function Player(x, y, angulo, velocidad) {
     this.velocidad = velocidad;
     this.spritePosition = 0;
 
-    this.movement = function (){
-        if (startMovement) {         
-            this.posX += ((clickTargetX - this.posX) / this.velocidad) *Math.cos(this.angulo);
-            this.posY += ((clickTargetY - this.posY) / this.velocidad)* Math.sin(this.angulo);
-            console.log(this.posX,this.posY);
+    this.movement = function () {
+        if (startMovement) {
+            this.posX += ((clickTargetX - this.posX) / this.velocidad) * Math.cos(this.angulo);
+            this.posY += ((clickTargetY - this.posY) / this.velocidad) * Math.sin(this.angulo);
+            console.log(this.posX, this.posY);
             this.colision();
         }
-       
+
     }
 
     this.colision = function () {
         // 30 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo + Math.PI / 6) * 10,
-                                                        this.posY + Math.sin(this.angulo + Math.PI / 6) * 10, 1, 1)
+            this.posY + Math.sin(this.angulo + Math.PI / 6) * 10, 1, 1)
         if (pregunta.data[0] < 50) {
             console.log("Hi 30!");
-            this.angulo -= 0.1; 
+            this.angulo -= 0.1;
         }
         // 60 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo + Math.PI / 3) * 10,
-                                                        this.posY + Math.sin(this.angulo + Math.PI / 3) * 10, 1, 1)
+            this.posY + Math.sin(this.angulo + Math.PI / 3) * 10, 1, 1)
         if (pregunta.data[0] < 50) {
             console.log("Hi 60!");
             this.angulo -= 0.2;
         }
         // -30 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo - Math.PI / 6) * 10,
-                                                        this.posY + Math.sin(this.angulo - Math.PI / 6) * 10, 1, 1)
+            this.posY + Math.sin(this.angulo - Math.PI / 6) * 10, 1, 1)
         if (pregunta.data[0] < 50) {
             console.log("Hi -30!");
             this.angulo += 0.1;
         }
         // -60 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo - Math.PI / 3) * 10,
-                                                        this.posY + Math.sin(this.angulo - Math.PI / 3) * 10, 1, 1)
+            this.posY + Math.sin(this.angulo - Math.PI / 3) * 10, 1, 1)
         if (pregunta.data[0] < 50) {
             console.log("Hi -60!");
             this.angulo += 0.2;
         }
         // 0 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo) * 10,
-                                                        this.posY + Math.sin(this.angulo) * 10, 1, 1)
+            this.posY + Math.sin(this.angulo) * 10, 1, 1)
         if (pregunta.data[0] < 50) {
             console.log("Hi 0!");
             this.angulo += 0.6;
         }
 
-        if(pregunta.data[0] >= 200 && pregunta.data[1] < 20 && pregunta.data[2] < 20){
-            console.log("Rescued!");
+        if (pregunta.data[0] >= 200 && pregunta.data[1] < 20 && pregunta.data[2] < 20) {
+            window.location.href = "gameWin.html"
         }
 
     }
