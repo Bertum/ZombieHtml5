@@ -32,18 +32,18 @@ function Zombie(x, y, angulo, velocidad) {
     this.colision = function () {
         // 30 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo + Math.PI / 6) * 10, this.posY + Math.sin(this.angulo + Math.PI / 6) * 10, 1, 1)
-        if (pregunta.data[0] > 50) { this.angulo -= 0.1 }
+        if (pregunta.data[0] < 50) { this.angulo -= 0.1 }
         // 60 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo + Math.PI / 3) * 10, this.posY + Math.sin(this.angulo + Math.PI / 3) * 10, 1, 1)
-        if (pregunta.data[0] > 50) { this.angulo -= 0.2 }
+        if (pregunta.data[0] < 50) { this.angulo -= 0.2 }
         // -30 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo - Math.PI / 6) * 10, this.posY + Math.sin(this.angulo - Math.PI / 6) * 10, 1, 1)
-        if (pregunta.data[0] > 50) { this.angulo += 0.1 }
+        if (pregunta.data[0] < 50) { this.angulo += 0.1 }
         // -60 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo - Math.PI / 3) * 10, this.posY + Math.sin(this.angulo - Math.PI / 3) * 10, 1, 1)
-        if (pregunta.data[0] > 50) { this.angulo += 0.2 }
+        if (pregunta.data[0] < 50) { this.angulo += 0.2 }
         // 0 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo) * 10, this.posY + Math.sin(this.angulo) * 10, 1, 1)
-        if (pregunta.data[0] > 50) { this.angulo += 0.6 }
+        if (pregunta.data[0] < 50) { this.angulo += 0.6 }
     }
 }
