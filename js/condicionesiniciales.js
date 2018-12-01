@@ -9,7 +9,7 @@ spritesheet.src = "images/spritesheetboxer.png";
 var pjSprite = new Image();
 pjSprite.addEventListener("load", function () {
     //Once image loads, create player in random position
-    player = new Player(300, 300, Math.PI / 2, 20);
+    player = new Player(15, 310, Math.PI / 2, 20);
 });
 pjSprite.src = "images/bk_player_assets/player_walk_strip6.png";
 var sprite = new Image();
