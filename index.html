@@ -2,35 +2,37 @@
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
-        body,
-        html {
-            margin: 0px;
-            padding: 0px;
-            overflow: hidden;
-            background-color: black;
-            color: white;
-        }
-
-        #opciones {
-            text-align: center;
-            padding-top: 5%;
-            font-size: 30px;
-        }
-
-        #titulo {
-            text-align: center;
-            padding-top: 15%;
-            font-size: 45px;
+        body {
+            background-image: url("images/mainBackground.jpg");
+            background-size: cover;
+            background-position: bottom;
         }
     </style>
 </head>
 
 <body>
     <div id="titulo">Zombie Apocalypse</div>
-    <div id="opciones">
+    <div id="opciones" class="opciones">
         <p onclick="cargarJuego()">Iniciar</p>
+        <p onclick="mostrarInstrucciones()">Instrucciones</p>
+        <p onclick="mostrarCreditos()">Créditos</p>
     </div>
+    <div id="creditos" class="opciones">
+        <p>Miguel Agudo Ballesteros</p>
+        <p>Alberto Delgado Cruzado</p>
+        <p onclick="volverAPrincipal()">Volver</p>
+    </div>
+    <div id="instrucciones" class="opciones">
+        <p>Tu objetivo es sobrevivir a la invasión zombie. Evita a los zombie y llega hasta el refugio.</p>
+        <p>La habitación segura podrás distinguirla por sus puertas rojas.</p>
+        <p onclick="volverAPrincipal()">Volver</p>
+    </div>
+    <div style="text-align:center">
+        <img id="logo" src="images/ua_logo.png" />
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
     <script src="js/menuPrincipal.js">
     </script>
 </body>
