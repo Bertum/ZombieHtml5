@@ -12,7 +12,8 @@ function Player(x, y, angulo, velocidad) {
         //contextoPlayer.translate(this.posX + 35 / 2, this.posY + 55 / 2);
         //Rotate the canvas around the origin
         //contextoPlayer.rotate(this.angulo - Math.PI / 2);
-        contextoPlayer.drawImage(pjSprite, this.spritePosition * 35, 0, 35, 55, this.posX, this.posY, 35, 55)
+        //console.log("PlayerPosition: "+this.posX+", "+this.posY);
+        contextoPlayer.drawImage(pjSprite, this.spritePosition * 35, 0, 35, 55, this.posX, this.posY, 35, 55);
         //reset the canvas  
         //contextoPlayer.rotate((this.angulo - Math.PI / 2) * (-1));
         //contextoPlayer.translate((this.posX + 35 / 2) * (-1), (this.posY + 55 / 2) * (-1));
