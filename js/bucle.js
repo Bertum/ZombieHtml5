@@ -10,10 +10,7 @@ function bucle() {
         zombies[i].muevete();
         zombies[i].pursuit(player.posX,player.posY);
     }
-    if (startMovement) {
-        player.posX += (clickTargetX - player.posX) / player.velocidad;
-        player.posY += (clickTargetY - player.posY) / player.velocidad;
-    }
+    player.movement();
     player.drawPlayer();
     clearTimeout(temporizador);
     temporizador = setTimeout("bucle()", 66)
