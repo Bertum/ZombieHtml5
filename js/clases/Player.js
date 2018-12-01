@@ -9,8 +9,8 @@ function Player(x, y, angulo, velocidad) {
 
     this.movement = function () {
         if (startMovement) {
-            this.posX += ((clickTargetX - this.posX) / this.velocidad) * Math.cos(this.angulo);
-            this.posY += ((clickTargetY - this.posY) / this.velocidad) * Math.sin(this.angulo);
+            this.posX += ((clickTargetX - this.posX) / this.velocidad);
+            this.posY += ((clickTargetY - this.posY) / this.velocidad);
             console.log(this.posX, this.posY);
             this.colision();
         }
