@@ -3,6 +3,7 @@ function Zombie(x, y, angulo, velocidad) {
     MainObject.call(this, x, y);
     this.angulo = angulo;
     this.velocidad = velocidad;
+    this.spritePosition = 0;
     this.muevete = function () {
         var posXCalc = this.posX + Math.cos(this.angulo) * this.velocidad;
         var posYCalc = this.posX + Math.sin(this.angulo) * this.velocidad;
@@ -27,6 +28,14 @@ function Zombie(x, y, angulo, velocidad) {
 
     this.gira180 = function () {
         this.angulo += 180;
+    }
+
+    this.drawZombie = function () {
+        contextoZombie.drawImage(sprite, this.spritePosition * 70, 0, 70, 63, this.posX, this.posY, 70, 63);
+        this.spritePosition++;
+        if (this.spritePosition == 3) {
+            this.spritePosition = 0;
+        }
     }
 
     this.colision = function () {

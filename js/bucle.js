@@ -4,7 +4,8 @@ function bucle() {
     contextoPlayer.clearRect(0, 0, 2048, 2048);
     for (var i = 0; i < numeroZombies; i++) {
         // Pinto el npc
-        drawImageRot(contextoZombie, sprite, zombies[i].posX, zombies[i].posY, 12, 12, zombies[i].angulo)
+        //drawImageRot(contextoZombie, sprite, zombies[i].posX, zombies[i].posY, 12, 12, zombies[i].angulo)
+        zombies[i].drawZombie();
         // Vamos a hacer que se muevan
         zombies[i].muevete();
     }

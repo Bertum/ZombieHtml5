@@ -11,6 +11,8 @@ function inicio() {
         startMovement = true;
         clickTargetX = event.pageX;
         clickTargetY = event.pageY;
+        //player.angulo = Math.atan2(clickTargetY - player.posY, clickTargetX - player.posX) * (180 / Math.PI);
+        player.angulo = Math.atan2(clickTargetY - player.posY, clickTargetX - player.posX);
         console.log(clickTargetX, clickTargetY);
     });
 }
