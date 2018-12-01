@@ -4,29 +4,43 @@ function Zombie(x, y, angulo, velocidad) {
     this.angulo = angulo;
     this.velocidad = velocidad;
     this.muevete = function () {
-        this.posx += Math.cos(this.angulo) * this.velocidad
-        this.posy += Math.sin(this.angulo) * this.velocidad
-        this.giraaleatorio();
+        var posXCalc = this.posx + Math.cos(this.angulo) * this.velocidad;
+        var posYCalc = this.posy + Math.sin(this.angulo) * this.velocidad;
+        if (posXCalc < map.width && posXCalc > 0) {
+            this.posx = posXCalc;
+            this.giraaleatorio();
+        } else {
+            this.gira180();
+        }
+        if (posYCalc < map.height && posYCalc > 0) {
+            this.posy = posYCalc;
+            this.giraaleatorio();
+        } else {
+            this.gira180();
+        }
         this.colision();
     }
     this.giraaleatorio = function () {
         this.angulo += (Math.random() - 0.5) * 0.1
     }
+    this.gira180 = function () {
+        this.angulo += 180;
+    }
     this.colision = function () {
         // 30 grados
-        var pregunta = contextolaberinto.getImageData(this.posx + Math.cos(this.angulo + Math.PI / 6) * 10, this.posy + Math.sin(this.angulo + Math.PI / 6) * 10, 1, 1)
-        if (pregunta.data[0] < 50) { this.angulo -= 0.1 }
+        var pregunta = contextoCleanMap.getImageData(this.posx + Math.cos(this.angulo + Math.PI / 6) * 10, this.posy + Math.sin(this.angulo + Math.PI / 6) * 10, 1, 1)
+        if (pregunta.data[0] > 200) { this.angulo -= 0.1 }
         // 60 grados
-        var pregunta = contextolaberinto.getImageData(this.posx + Math.cos(this.angulo + Math.PI / 3) * 10, this.posy + Math.sin(this.angulo + Math.PI / 3) * 10, 1, 1)
-        if (pregunta.data[0] < 50) { this.angulo -= 0.2 }
+        var pregunta = contextoCleanMap.getImageData(this.posx + Math.cos(this.angulo + Math.PI / 3) * 10, this.posy + Math.sin(this.angulo + Math.PI / 3) * 10, 1, 1)
+        if (pregunta.data[0] > 200) { this.angulo -= 0.2 }
         // -30 grados
-        var pregunta = contextolaberinto.getImageData(this.posx + Math.cos(this.angulo - Math.PI / 6) * 10, this.posy + Math.sin(this.angulo - Math.PI / 6) * 10, 1, 1)
-        if (pregunta.data[0] < 50) { this.angulo += 0.1 }
+        var pregunta = contextoCleanMap.getImageData(this.posx + Math.cos(this.angulo - Math.PI / 6) * 10, this.posy + Math.sin(this.angulo - Math.PI / 6) * 10, 1, 1)
+        if (pregunta.data[0] > 200) { this.angulo += 0.1 }
         // -60 grados
-        var pregunta = contextolaberinto.getImageData(this.posx + Math.cos(this.angulo - Math.PI / 3) * 10, this.posy + Math.sin(this.angulo - Math.PI / 3) * 10, 1, 1)
-        if (pregunta.data[0] < 50) { this.angulo += 0.2 }
+        var pregunta = contextoCleanMap.getImageData(this.posx + Math.cos(this.angulo - Math.PI / 3) * 10, this.posy + Math.sin(this.angulo - Math.PI / 3) * 10, 1, 1)
+        if (pregunta.data[0] > 200) { this.angulo += 0.2 }
         // 0 grados
-        var pregunta = contextolaberinto.getImageData(this.posx + Math.cos(this.angulo) * 10, this.posy + Math.sin(this.angulo) * 10, 1, 1)
-        if (pregunta.data[0] < 50) { this.angulo += 0.6 }
+        var pregunta = contextoCleanMap.getImageData(this.posx + Math.cos(this.angulo) * 10, this.posy + Math.sin(this.angulo) * 10, 1, 1)
+        if (pregunta.data[0] > 200) { this.angulo += 0.6 }
     }
 }
