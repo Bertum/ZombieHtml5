@@ -16,6 +16,6 @@ function bucle() {
     }
     player.drawPlayer();
     clearTimeout(temporizador);
-    temporizador = setTimeout("bucle()", 33)
+    temporizador = setTimeout("bucle()", 66)
 
 }

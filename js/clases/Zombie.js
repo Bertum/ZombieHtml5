@@ -32,7 +32,7 @@ function Zombie(x, y, angulo, velocidad) {
     }
 
     this.drawZombie = function () {
-        contextoZombie.drawImage(sprite, this.spritePosition * 70, 0, 70, 63, this.posX, this.posY, 70, 63);
+        contextoZombie.drawImage(sprite, this.spritePosition * 35, 0, 35, 33, this.posX, this.posY, 35, 33);
         this.spritePosition++;
         if (this.spritePosition == 3) {
             this.spritePosition = 0;

@@ -13,7 +13,7 @@ pjSprite.addEventListener("load", function () {
 });
 pjSprite.src = "images/bk_player_assets/player_walk_strip6.png";
 var sprite = new Image();
-sprite.src = "images/zombieSpriteSheet.png";
+sprite.src = "images/smallerZombieSpriteSheet.png";
 var numeroZombies = 10;
 var zombies = new Array();
 var map = new Image();
