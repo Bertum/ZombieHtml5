@@ -26,48 +26,38 @@ function Player(x, y, angulo, velocidad) {
             console.log("Rescatado!");
             window.location.href = "gameWin.html"
         }
-        
+
         if (pregunta.data[0] > 50) {
-            clickTargetX = this.posX - Math.cos(this.angulo);
-            clickTargetY = this.posY - Math.sin(this.angulo);
+            startMovement = false;
             console.log("Hi 30!");
-            this.angulo -= 0.1;
         }
         // 60 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo + Math.PI / 3) * 10,
             this.posY + Math.sin(this.angulo + Math.PI / 3) * 10, 1, 1);
         if (pregunta.data[0] > 50) {
             console.log("Hi 60!");
-            clickTargetX = this.posX - Math.cos(this.angulo);
-            clickTargetY = this.posY - Math.sin(this.angulo);
-            this.angulo -= 0.2;
+            startMovement = false;
         }
         // -30 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo - Math.PI / 6) * 10,
             this.posY + Math.sin(this.angulo - Math.PI / 6) * 10, 1, 1);
         if (pregunta.data[0] > 50) {
             console.log("Hi -30!");
-            clickTargetX = this.posX - Math.cos(this.angulo);
-            clickTargetY = this.posY - Math.sin(this.angulo);
-            this.angulo += 0.1;
+            startMovement = false;
         }
         // -60 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo - Math.PI / 3) * 10,
             this.posY + Math.sin(this.angulo - Math.PI / 3) * 10, 1, 1);
         if (pregunta.data[0] > 50) {
             console.log("Hi -60!");
-            clickTargetX = this.posX - Math.cos(this.angulo);
-            clickTargetY = this.posY - Math.sin(this.angulo);
-            this.angulo += 0.2;
+            startMovement = false;
         }
         // 0 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo) * 10,
             this.posY + Math.sin(this.angulo) * 10, 1, 1);
         if (pregunta.data[0] > 50) {
             console.log("Hi 0!");
-            clickTargetX = this.posX - Math.cos(this.angulo);
-            clickTargetY = this.posY - Math.sin(this.angulo);
-            this.angulo += 0.6;
+            startMovement = false;
         }
     }
 
