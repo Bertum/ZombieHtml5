@@ -20,44 +20,55 @@ function Player(x, y, angulo, velocidad) {
     this.colision = function () {
         // 30 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo + Math.PI / 6) * 10,
-            this.posY + Math.sin(this.angulo + Math.PI / 6) * 10, 1, 1)
-        if (pregunta.data[0] < 50) {
+            this.posY + Math.sin(this.angulo + Math.PI / 6) * 10, 1, 1);
+
+        if (pregunta.data[0] >= 200 && pregunta.data[1] < 20 && pregunta.data[2] < 20) {
+            console.log("Rescatado!");
+            window.location.href = "gameWin.html"
+        }
+        
+        if (pregunta.data[0] > 50) {
+            clickTargetX = this.posX - Math.cos(this.angulo);
+            clickTargetY = this.posY - Math.sin(this.angulo);
             console.log("Hi 30!");
             this.angulo -= 0.1;
         }
         // 60 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo + Math.PI / 3) * 10,
-            this.posY + Math.sin(this.angulo + Math.PI / 3) * 10, 1, 1)
-        if (pregunta.data[0] < 50) {
+            this.posY + Math.sin(this.angulo + Math.PI / 3) * 10, 1, 1);
+        if (pregunta.data[0] > 50) {
             console.log("Hi 60!");
+            clickTargetX = this.posX - Math.cos(this.angulo);
+            clickTargetY = this.posY - Math.sin(this.angulo);
             this.angulo -= 0.2;
         }
         // -30 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo - Math.PI / 6) * 10,
-            this.posY + Math.sin(this.angulo - Math.PI / 6) * 10, 1, 1)
-        if (pregunta.data[0] < 50) {
+            this.posY + Math.sin(this.angulo - Math.PI / 6) * 10, 1, 1);
+        if (pregunta.data[0] > 50) {
             console.log("Hi -30!");
+            clickTargetX = this.posX - Math.cos(this.angulo);
+            clickTargetY = this.posY - Math.sin(this.angulo);
             this.angulo += 0.1;
         }
         // -60 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo - Math.PI / 3) * 10,
-            this.posY + Math.sin(this.angulo - Math.PI / 3) * 10, 1, 1)
-        if (pregunta.data[0] < 50) {
+            this.posY + Math.sin(this.angulo - Math.PI / 3) * 10, 1, 1);
+        if (pregunta.data[0] > 50) {
             console.log("Hi -60!");
+            clickTargetX = this.posX - Math.cos(this.angulo);
+            clickTargetY = this.posY - Math.sin(this.angulo);
             this.angulo += 0.2;
         }
         // 0 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo) * 10,
-            this.posY + Math.sin(this.angulo) * 10, 1, 1)
-        if (pregunta.data[0] < 50) {
+            this.posY + Math.sin(this.angulo) * 10, 1, 1);
+        if (pregunta.data[0] > 50) {
             console.log("Hi 0!");
+            clickTargetX = this.posX - Math.cos(this.angulo);
+            clickTargetY = this.posY - Math.sin(this.angulo);
             this.angulo += 0.6;
         }
-
-        if (pregunta.data[0] >= 200 && pregunta.data[1] < 20 && pregunta.data[2] < 20) {
-            window.location.href = "gameWin.html"
-        }
-
     }
 
     this.drawPlayer = function () {
