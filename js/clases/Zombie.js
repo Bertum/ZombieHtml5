@@ -16,7 +16,7 @@ function Zombie(x, y, angulo, velocidad) {
         }
         if (posYCalc < map.height && posYCalc > 0) {
             this.posY = posYCalc;
-            this.giraaleatorio();
+            //this.giraaleatorio();
         } else {
             this.gira180();
         }
@@ -58,15 +58,11 @@ function Zombie(x, y, angulo, velocidad) {
     }
 
     this.pursuit = function (playerX, playerY) {
-        // Para tirar lineas todos tienen que ver a todos		// Ve al resto de los otros peces
-        // Solo quiero que se vean si su distancia es menor que 50
         if (Math.sqrt(Math.pow((this.posX - playerX), 2) + Math.pow((this.posY - playerY), 2)) < 50) {
-            // Si el tamaño del pez numero 2 es mayor que el tamaño del pez numero 2
-            // En ese caso el pez VA HACIA el segundo pez, porque sabe que va a ganar
             this.following = true;
             this.angulo = Math.atan2(playerY - this.posY, playerX - this.posX);
 
-            if (Math.sqrt(Math.pow((this.posX - playerX), 2) + Math.pow((this.posY - playerY), 2)) < 2) {
+            if (Math.sqrt(Math.pow((this.posX - playerX), 2) + Math.pow((this.posY - playerY), 2)) < 5) {
                 startMovement = false;
                 window.location.href = "gameOver.html"
             }
