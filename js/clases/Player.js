@@ -8,6 +8,7 @@ function Player(x, y, angulo, velocidad) {
     this.spritePosition = 0;
 
     this.movement = function () {
+        //Si han pulsado en pantalla, me muevo en dirección al click
         if (startMovement) {
             this.posX += ((clickTargetX - this.posX) / this.velocidad);
             this.posY += ((clickTargetY - this.posY) / this.velocidad);
@@ -17,6 +18,7 @@ function Player(x, y, angulo, velocidad) {
 
     }
 
+    //funcion para comprobar si hemos llegado al objetivo o si hay lineas blancas en la trayectoria
     this.colision = function () {
         // 30 grados
         var pregunta = contextoCleanMap.getImageData(this.posX + Math.cos(this.angulo + Math.PI / 6) * 10,

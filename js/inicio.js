@@ -1,4 +1,5 @@
 function inicio() {
+    //Iniciamos zombies
     for (var i = 0; i < numeroZombies; i++) {
         zombies[i] = new Zombie(Math.random() * 656, Math.random() * 513, Math.random() * Math.PI * 2, 3);
     }

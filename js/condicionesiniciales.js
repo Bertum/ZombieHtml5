@@ -14,13 +14,16 @@ pjSprite.addEventListener("load", function () {
 pjSprite.src = "images/bk_player_assets/player_walk_strip6.png";
 var sprite = new Image();
 sprite.src = "images/smallerZombieSpriteSheet.png";
+//Var zombies
 var numeroZombies = 10;
 var zombies = new Array();
+//Var maps
 var map = new Image();
 map.src = "images/map.png";
 var cleanMap = new Image();
 cleanMap.src = "images/clean_map.png";
 var temporizador;
+//Var context
 var contextoMap = document.getElementById("map").getContext("2d");
 var contextoZombie = document.getElementById("zombies").getContext("2d");
 var contextosensores = document.getElementById("sensores").getContext("2d");
